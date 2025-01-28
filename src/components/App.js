@@ -22,7 +22,7 @@ class App extends Component {
         <div className="ball" style={{ left: `${this.state.ballPosition}px` }}></div> 
       );
     } else {
-      return <button onClick={this.buttonClickHandler} >Start</button>
+      return <button className="start" onClick={this.buttonClickHandler} >Start</button>
     }
   }
 
