@@ -6,8 +6,7 @@ class App extends Component {
     super(props)
     this.state = {
       renderBall: false,
-      posi : 0, 
-      ballPosition: { left: "0px" } 
+      ballPosition: 0, 
     };
     this.renderChoice = this.renderBallOrButton.bind(this)
     this.buttonClickHandler = this.buttonClickHandler.bind(this)
@@ -19,7 +18,9 @@ class App extends Component {
 
   renderBallOrButton() {
     if (this.state.renderBall) {
-      return <div className="ball" style={this.state.ballPosition}></div>
+      return (
+        <div className="ball" style={{ left: `${this.state.ballPosition}px` }}></div> 
+      );
     } else {
       return <button onClick={this.buttonClickHandler} >Start</button>
     }
@@ -30,8 +31,7 @@ class App extends Component {
     document.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowRight' || event.keyCode === 39) {
         this.setState((prevState) => ({ 
-          posi: prevState.posi + 5, 
-          ballPosition: { left: `${prevState.posi}px` } 
+          ballPosition: prevState.ballPosition + 5 
         }));
       }
     });
